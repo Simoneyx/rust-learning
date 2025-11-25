@@ -1,6 +1,7 @@
 //prova struct
 use std::io;
 
+#[derive(Debug)]
 struct Rectangle{
     base:f64,
     altezza:f64,
@@ -25,5 +26,5 @@ fn main() {
         altezza: altezza.trim().parse().expect(errore.as_str()),
     };
 
-    println!("L'area del rettangolo e': {}", rect1.area());
+    println!("L'area del rettangolo ({:?})e': {}",rect1, rect1.area());
 }
