@@ -1,24 +1,30 @@
-//primo programma per vedere un po la sintassi di rust
-use std::env;
+//prova struct
 use std::io;
 
+#[derive(Debug)]
+struct Rectangle{
+    base:f64,
+    altezza:f64,
+}
+impl Rectangle {
+    fn area(&self) -> f64 {
+        self.base * self.altezza
+    }
+}
 fn main() {
-    let mut _s=String::new();
-    let args:Vec<String> = env::args().collect();
-    let mut _bho: &str;
-    println!("{:?}",args);
-    if args.len() > 1 {
-        for _bho in args{
-            print!("{} ",_bho);
-        }
-        
-    }
-    else{
-        println!("scrivi qualcosa:");
-        io::stdin()
-            .read_line(&mut _s)
-            .expect("non hai scritto nulla");
-        println!("{}",_s);
-    }
-    
+    let mut base = String::new();
+    let mut altezza = String::new();
+    let errore= String::from("Errore di input");
+
+    println!("inserisci base rettangolo:");
+    io::stdin().read_line(&mut base).expect(errore.as_str());
+    println!("inserisci altezza rettangolo:");
+    io::stdin().read_line(&mut altezza).expect(errore.as_str());
+
+    let rect1= Rectangle{
+        base: base.trim().parse().expect(errore.as_str()),
+        altezza: altezza.trim().parse().expect(errore.as_str()),
+    };
+
+    println!("L'area del rettangolo ({:?})e': {}",rect1, rect1.area());
 }

@@ -10,6 +10,9 @@ impl Rectangle {
     fn area(&self) -> f64 {
         self.base * self.altezza
     }
+    fn perimetro(&self) -> f64 {
+        2.0 * (self.base + self.altezza)
+    }
 }
 fn main() {
     let mut base = String::new();
@@ -26,5 +29,5 @@ fn main() {
         altezza: altezza.trim().parse().expect(errore.as_str()),
     };
 
-    println!("L'area del rettangolo ({:?})e': {}",rect1, rect1.area());
+    println!("L'area del rettangolo ({:?})e': {},il perimetro e':{}",rect1, rect1.area(),rect1.perimetro());
 }
