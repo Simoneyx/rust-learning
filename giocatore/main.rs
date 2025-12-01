@@ -1,22 +1,23 @@
 //prova enum
-use std::io;
+
+#![allow(dead_code)]
 #[derive(Debug)]
 enum Movimenti{
-    UP,
-    DOWN,
-    LEFT,
-    RIGHT
+    Up,
+    Down,
+    Left,
+    Right
 }
 #[derive(Debug)]
 enum Arma {
-    SPADA,
-    ARCO
+    Spada,
+    Arco
 }
 #[derive(Debug)]
 enum StatoGiocatore{
-    IDLE,
-    MOVE(Movimenti),
-    ATTACK(Arma)
+    Idle,
+    Move(Movimenti),
+    Attack(Arma)
 }
 #[derive(Debug)]
 struct Giocatore{
@@ -26,9 +27,8 @@ struct Giocatore{
 }
 
 fn main() {
-    let _giu: StatoGiocatore = StatoGiocatore::MOVE(Movimenti::DOWN);
-    let _attacco: StatoGiocatore=StatoGiocatore::ATTACK(Arma::ARCO);
+    let _giu: StatoGiocatore = StatoGiocatore::Move(Movimenti::Down);
+    let _attacco: StatoGiocatore=StatoGiocatore::Attack(Arma::Arco);
     let giocatori=[Giocatore { nome:String::from("ciao"), vita: 100, stato: _giu },Giocatore{nome:String::from("Simone"), vita: 100, stato: _attacco }];
-    print!("{:?}",giocatori);
-
+    print!("{:?}",&giocatori);
 }

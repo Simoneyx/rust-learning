@@ -1,4 +1,6 @@
 //prova enum
+
+#![allow(dead_code)]
 #[derive(Debug)]
 enum Movimenti{
     Up,
