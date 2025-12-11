@@ -8,3 +8,11 @@ pub struct Giocatore{
     pub vita:i8,
     pub stato:StatoGiocatore
 }
+impl Giocatore{
+    pub fn new()->Self{
+        Self { 
+            nome: String::from("simone"),
+            vita: 100,
+            stato: state::StatoGiocatore::Idle }
+    }
+}

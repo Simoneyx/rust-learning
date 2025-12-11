@@ -1,16 +1,13 @@
-//prova 
-#![allow(dead_code)]
-mod player;
-mod weapon;
-use crate::player::Giocatore;
-use crate::player::movement::Movimenti;
-use crate::player::state::StatoGiocatore;
-use crate::weapon::Arma;
-
-
+// vector test
+use std::io;
 fn main() {
-    let _giu: StatoGiocatore = StatoGiocatore::Move(Movimenti::Down);
-    let _attacco: StatoGiocatore=StatoGiocatore::Attack(Arma::Arco);
-    let giocatori: Vec<Giocatore>=vec![Giocatore { nome:String::from("ciao"), vita: 100, stato: _giu },Giocatore{nome:String::from("Simone"), vita: 100, stato: _attacco },Giocatore::new()];
-    print!("{:?}",&giocatori);
+    let mut input:String =String::new();
+    io::stdin()
+        .read_line(&mut input )
+        .expect("error");
+    println!("enter some numbers: ");
+    let mut v:Vec<&str>  =input.split(' ').collect();
+    let last_element:usize = v.len()-1;
+    v[last_element]=v[last_element].trim();
+    println!("{v:?}")
 }
